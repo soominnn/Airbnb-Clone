@@ -3,7 +3,7 @@ from django.contrib.auth.admin import UserAdmin
 from . import models
 
 # Register your models here.
-# decorator : 바로 밑 클래스에 models.User을 입력해주는 역할.
+# decorator : 바로 밑 클래스에 models.User을 입력해주는 역할. ex)@
 # == admin.site.register(models.User, CustomUserAdmin)
 @admin.register(models.User)
 class CustomUserAdmin(UserAdmin):
