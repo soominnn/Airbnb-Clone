@@ -85,5 +85,15 @@ class Room(core_models.TimeStampedModel):
     def __str__(self):
         return self.name
 
+    def total_rating(self):
+        all_reviews = self.reviews.all()
+        try:
+            all_ratings = 0
+            for review in all_reviews:
+                all_ratings += review.rating_average()
+            return all_ratings / len(all_reviews)
+        except ZeroDivisionError:
+            return 0
+
 
 # Create your models here.
